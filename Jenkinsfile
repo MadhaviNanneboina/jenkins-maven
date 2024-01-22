@@ -59,5 +59,12 @@ pipeline {
                  archiveArtifacts '**/target/*.jar'
             }
         }
+        stage(deploying web){
+            steps{
+                bat '''startup.sh
+mv \'**/target/*.jar  D:\\Softwares\\apache-tomcat-10.1.18\\webapps
+'''
+            }
+        }
     }
 }
